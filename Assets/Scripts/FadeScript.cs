@@ -32,13 +32,15 @@ public class FadeScript : MonoBehaviour
        
         if(fadeOut)
         {
-            if (i >= 0)
+            if (i > 0)
             {
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, i);
                 i -= Time.deltaTime / fadeDuration;
             }
             else
             {
+                i = 0;
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, i);
                 gameObject.tag = "Death";
                 fadeOut = false;
             }
