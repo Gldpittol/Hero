@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -61,7 +63,8 @@ public class PlayerScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Death"))
         {
-            Destroy(this.gameObject);
+            gc.KillPlayer();
+            Destroy(this.gameObject);         
         }
     }
 

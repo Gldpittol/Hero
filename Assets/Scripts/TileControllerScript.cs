@@ -11,7 +11,7 @@ public class TileControllerScript : MonoBehaviour
 
     private void Start()
     {
-        currentPattern = 9;
+        currentPattern = 1;
     }
 
     void Update()
@@ -78,6 +78,7 @@ public class TileControllerScript : MonoBehaviour
         float returnTime = 5f;
         float waitTime = 0.1f;
 
+        yield return new WaitForSeconds(2f);
         yield return new WaitForSeconds(waitTime);
         tiles[1].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         yield return new WaitForSeconds(waitTime);
@@ -1083,7 +1084,9 @@ public class TileControllerScript : MonoBehaviour
         tiles[99].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[100].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
 
-        currentPattern = 0;
+        yield return new WaitForSeconds(returnTime);
+
+        currentPattern = 8;
 
 
     }
@@ -1172,6 +1175,10 @@ public class TileControllerScript : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             i++;
         }
+
+        yield return new WaitForSeconds(3f);
+
+        currentPattern = 9;
     }
 
     public IEnumerator Pattern9()
@@ -1366,6 +1373,7 @@ public class TileControllerScript : MonoBehaviour
 
         yield return new WaitForSeconds(returnTime);
 
+        currentPattern = 10;
     }
 
     public IEnumerator Pattern10()
@@ -1434,6 +1442,10 @@ public class TileControllerScript : MonoBehaviour
                 i++;
             }
         }
+
+        yield return new WaitForSeconds(5f);
+
+        currentPattern = 1;
     }
 
 }
