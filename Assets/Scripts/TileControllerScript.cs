@@ -11,7 +11,7 @@ public class TileControllerScript : MonoBehaviour
 
     private void Start()
     {
-        currentPattern = 10;
+        currentPattern = 9;
     }
 
     void Update()
