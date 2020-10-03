@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Sprite notBroken;
+    public Sprite broken;
+    public SpriteRenderer sr;
+
+
+    private void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetBroken()
     {
-        
+        sr.sprite = broken;
+    }
+
+    public void SetNotBroken()
+    {
+        sr.sprite = notBroken;
     }
 }
