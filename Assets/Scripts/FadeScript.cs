@@ -23,6 +23,7 @@ public class FadeScript : MonoBehaviour
 
     public void FadeStart(float timeFade, float timeWait)
     {
+        StopAllCoroutines();
         StartCoroutine(ToFade(timeFade, timeWait));
     }
 
