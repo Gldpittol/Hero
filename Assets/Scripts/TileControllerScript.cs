@@ -11,7 +11,7 @@ public class TileControllerScript : MonoBehaviour
 
     private void Start()
     {
-        currentPattern = 8;
+        currentPattern = 10;
     }
 
     void Update()
@@ -57,6 +57,16 @@ public class TileControllerScript : MonoBehaviour
             case 8:
                 currentPattern = 5000;
                 StartCoroutine(Pattern8());
+                break;
+
+            case 9:
+                currentPattern = 5000;
+                StartCoroutine(Pattern9());
+                break;
+
+            case 10:
+                currentPattern = 5000;
+                StartCoroutine(Pattern10());
                 break;
         }
     }
@@ -1080,7 +1090,7 @@ public class TileControllerScript : MonoBehaviour
 
     public IEnumerator Pattern8()
     {
-        //rotação antihorário
+        //xadrez
         float fadeTime = 0.1f;
         float returnTime;
         float waitTime = 1f;
@@ -1090,22 +1100,26 @@ public class TileControllerScript : MonoBehaviour
         
         for (int i = 1; i < 10; i++)
         {
-        tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 12; i < 21; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 21; i < 31; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 32; i < 41; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 41; i < 51; i++)
@@ -1117,6 +1131,7 @@ public class TileControllerScript : MonoBehaviour
             else
             {
                 tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                yield return new WaitForSeconds(0.05f);
                 i++;
             }
         }
@@ -1129,28 +1144,295 @@ public class TileControllerScript : MonoBehaviour
             else
             {
                 tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                yield return new WaitForSeconds(0.05f);
                 i++;
             }
         }
         for (int i = 61; i < 71; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 72; i < 81; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 81; i < 91; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
         }
         for (int i = 92; i < 101; i++)
         {
             tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+            yield return new WaitForSeconds(0.05f);
             i++;
+        }
+    }
+
+    public IEnumerator Pattern9()
+    {
+        //caminho estreito
+        float fadeTime = 0.1f;
+        float returnTime = 18f;
+        float waitTime = 0.5f;
+
+        tiles[100].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[90].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[99].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[80].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[89].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[98].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[70].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[79].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[88].GetComponent<FadeScript>().FadeStart(fadeTime, 7.5f + 9 * waitTime);
+        tiles[97].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        
+        yield return new WaitForSeconds(waitTime);
+        tiles[60].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[69].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[78].GetComponent<FadeScript>().FadeStart(fadeTime, 7f + 8 * waitTime);
+        tiles[87].GetComponent<FadeScript>().FadeStart(fadeTime, 8f + 8 * waitTime);
+        tiles[96].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[50].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[59].GetComponent<FadeScript>().FadeStart(fadeTime, 5.5f + 7 * waitTime);
+        tiles[68].GetComponent<FadeScript>().FadeStart(fadeTime, 6.5f + 7 * waitTime);
+        tiles[77].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[86].GetComponent<FadeScript>().FadeStart(fadeTime, 8.5f + 7 * waitTime);
+        tiles[95].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[40].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[49].GetComponent<FadeScript>().FadeStart(fadeTime, 5f + 6 * waitTime);
+        tiles[58].GetComponent<FadeScript>().FadeStart(fadeTime, 6f + 6 * waitTime);
+        tiles[67].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[76].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[85].GetComponent<FadeScript>().FadeStart(fadeTime, 9f + 6 * waitTime);
+        tiles[94].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[30].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[39].GetComponent<FadeScript>().FadeStart(fadeTime, 4.5f + 5 * waitTime);
+        tiles[48].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[57].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[66].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[75].GetComponent<FadeScript>().FadeStart(fadeTime, 9.5f + 5 * waitTime);
+        tiles[84].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[93].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[20].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[29].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[38].GetComponent<FadeScript>().FadeStart(fadeTime, 4f + 4 * waitTime);
+        tiles[47].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[65].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[74].GetComponent<FadeScript>().FadeStart(fadeTime, 10f + 4 * waitTime);
+        tiles[83].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[92].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[10].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[19].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[28].GetComponent<FadeScript>().FadeStart(fadeTime, 3.5f + 3 * waitTime);
+        tiles[37].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[64].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[73].GetComponent<FadeScript>().FadeStart(fadeTime, 10.5f + 3 * waitTime);
+        tiles[82].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[91].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[9].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[18].GetComponent<FadeScript>().FadeStart(fadeTime, 3f + 2 * waitTime);
+        tiles[27].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[36].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[54].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[63].GetComponent<FadeScript>().FadeStart(fadeTime, 11f + 2 * waitTime);
+        tiles[72].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[81].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[8].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[17].GetComponent<FadeScript>().FadeStart(fadeTime, 2.5f + waitTime);
+        tiles[26].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[35].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[44].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[53].GetComponent<FadeScript>().FadeStart(fadeTime, 11.5f + waitTime);
+        tiles[62].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[71].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[7].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[16].GetComponent<FadeScript>().FadeStart(fadeTime, 2f);
+        tiles[25].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[34].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[43].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[52].GetComponent<FadeScript>().FadeStart(fadeTime, 12f);
+        tiles[61].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[6].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[15].GetComponent<FadeScript>().FadeStart(fadeTime, 2f - waitTime);
+        tiles[24].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[33].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[42].GetComponent<FadeScript>().FadeStart(fadeTime, 12.5f - waitTime);
+        tiles[51].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[5].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[14].GetComponent<FadeScript>().FadeStart(fadeTime, 2f - 2f * waitTime);
+        tiles[32].GetComponent<FadeScript>().FadeStart(fadeTime, 13f - 2f * waitTime);
+        tiles[41].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[4].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[31].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[3].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[21].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[2].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[11].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[1].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(waitTime);
+        tiles[12].GetComponent<FadeScript>().FadeStart(fadeTime, 5f);
+        tiles[13].GetComponent<FadeScript>().FadeStart(fadeTime, 5f);
+        tiles[22].GetComponent<FadeScript>().FadeStart(fadeTime, 5f);
+        tiles[23].GetComponent<FadeScript>().FadeStart(fadeTime, 5f);
+        yield return new WaitForSeconds(0.5f);
+        tiles[14].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[15].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[16].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[17].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[18].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[28].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[38].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[39].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[49].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[59].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[58].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[68].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[78].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[88].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[87].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[86].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[85].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[75].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[74].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[73].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[63].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[53].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[52].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[42].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        yield return new WaitForSeconds(0.5f);
+        tiles[32].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+
+        yield return new WaitForSeconds(returnTime);
+
+    }
+
+    public IEnumerator Pattern10()
+    {
+        //de um lado pro outro
+        float fadeTime = 0.1f;
+        float returnTime = 1f; ;
+        float waitTime = 1f;
+
+        yield return new WaitForSeconds(waitTime);
+
+        for (int i = 1; i < 101; i++)
+        {
+            if (i == 46 || i == 56  || i == 45 || i == 55)
+            {
+                i++;
+            }
+            else
+            {
+                tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                i++;
+            }
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 2; i < 101; i++)
+        {
+            if (i == 46 || i == 56 || i == 45 || i == 55)
+            {
+                i++;
+            }
+            else
+            {
+                tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                i++;
+            }
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 1; i < 101; i++)
+        {
+            if (i == 46 || i == 56 || i == 45 || i == 55)
+            {
+                i++;
+            }
+            else
+            {
+                tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                i++;
+            }
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 2; i < 101; i++)
+        {
+            if (i == 46 || i == 56 || i == 45 || i == 55)
+            {
+                i++;
+            }
+            else
+            {
+                tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+                i++;
+            }
         }
     }
 
