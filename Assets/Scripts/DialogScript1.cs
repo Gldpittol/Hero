@@ -40,7 +40,7 @@ public class DialogScript1 : MonoBehaviour
                 break;
             case 2:
                 gc.stopMovement = true;
-                dialogText.text = "I fell into darkness, I should be dead. How am I alive?";
+                dialogText.text = "I fell into the darkness, I should be dead. How am I alive?";
                 yield return new WaitForSeconds(2f);
                 gc.stopMovement = false;
                 Destroy(canv.gameObject);
