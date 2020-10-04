@@ -11,6 +11,6 @@ public class BossRotationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.up = player.transform.position - transform.position;
+       if(player) transform.up = player.transform.position - transform.position;
     }
 }

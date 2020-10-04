@@ -17,7 +17,7 @@ public class TileControllerScript : MonoBehaviour
 
     void Update()
     {
-
+        if(!gc.cannotDie)
         switch (currentPattern)
         {
             case 1:
@@ -90,6 +90,8 @@ public class TileControllerScript : MonoBehaviour
                 gc.SpawnSword();
                 break;
         }
+
+      
     }
 
     public IEnumerator Pattern1()

@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
 {
     private GameControllerScript gc;
 
-    private SpriteRenderer sr;
+    public SpriteRenderer sr;
     public Sprite upSprite;
     public Sprite downSprite;
     public Sprite rightSprite;
@@ -68,7 +68,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Death"))
+        if(other.gameObject.CompareTag("Death") && !gc.cannotDie)
         {
             //gc.KillPlayer();
             //Destroy(this.gameObject);         
@@ -93,10 +93,11 @@ public class PlayerScript : MonoBehaviour
 
             healthBar.GetComponent<HealthBarScript>().UpdateHealthBar();
 
-            if(gc.pickedAmount == 4)
+            if (gc.pickedAmount == 4)
             {
                 gc.KillBoss();
             }
+            else gc.BossHitFunction();
         }
     }
 
