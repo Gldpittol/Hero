@@ -84,7 +84,18 @@ public class PlayerScript : MonoBehaviour
             StaticVariables.currentDialog++;
             StartCoroutine(LevelChange());
         }
+        if (collision.gameObject.CompareTag("sword"))
+        {
+            Destroy(collision.gameObject);
+            gc.pickedAmount++;
+            if(gc.pickedAmount == 4)
+            {
+                gc.KillBoss();
+            }
+        }
     }
+
+
 
     public IEnumerator MoveDelay()
     {

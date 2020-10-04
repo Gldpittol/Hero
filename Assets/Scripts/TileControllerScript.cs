@@ -24,60 +24,70 @@ public class TileControllerScript : MonoBehaviour
                 currentPattern = 5000;
                 gc.currentPattern = 1;
                 StartCoroutine(Pattern1());
+                gc.SpawnSword();
                 break;
 
             case 2:
                 currentPattern = 5000;
                 gc.currentPattern = 2;
                 StartCoroutine(Pattern2());
+                gc.SpawnSword();
                 break;
 
             case 3:
                 currentPattern = 5000;
                 gc.currentPattern = 3;
                 StartCoroutine(Pattern3());
+                gc.SpawnSword();
                 break;
 
             case 4:
                 currentPattern = 5000;
                 gc.currentPattern = 4;
                 StartCoroutine(Pattern4());
+                gc.SpawnSword();
                 break;
 
             case 5:
                 currentPattern = 5000;
                 gc.currentPattern = 5;
                 StartCoroutine(Pattern5());
+                gc.SpawnSword();
                 break;
 
             case 6:
                 currentPattern = 5000;
                 gc.currentPattern = 6;
                 StartCoroutine(Pattern6());
+                gc.SpawnSword();
                 break;
 
             case 7:
                 currentPattern = 5000;
                 gc.currentPattern = 7;
                 StartCoroutine(Pattern7());
+                gc.SpawnSword();
                 break;
 
             case 8:
                 currentPattern = 5000;
                 gc.currentPattern = 8;
                 StartCoroutine(Pattern8());
+                gc.SpawnSword();
                 break;
 
             case 9:
                 currentPattern = 5000;
                 gc.currentPattern = 9;
                 StartCoroutine(Pattern9());
+                gc.SpawnSword();
                 break;
 
             case 10:
                 currentPattern = 5000;
                 gc.currentPattern = 10;
                 StartCoroutine(Pattern10());
+                gc.SpawnSword();
                 break;
         }
     }

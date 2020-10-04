@@ -8,6 +8,8 @@ public class KillerSpawn : MonoBehaviour
     public Vector3 tempTransform;
     public bool canSpawn;
 
+    private GameObject temp;
+
     private void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
@@ -28,7 +30,8 @@ public class KillerSpawn : MonoBehaviour
     {
         if(gc.player) tempTransform = gc.player.transform.position;
         yield return new WaitForSeconds(2f);
-        Instantiate(gc.killerPrefab, tempTransform, Quaternion.identity);
+        temp = Instantiate(gc.killerPrefab, tempTransform, Quaternion.identity);
+        Destroy(temp, 1f);
         canSpawn = true;
     }
 }
