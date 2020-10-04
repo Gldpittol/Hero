@@ -581,7 +581,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level
+          m_StringArgument: The Room
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &712258009
@@ -745,6 +745,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f3f067191690349a86486e5086e85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPattern: 0
+  killerPrefab: {fileID: 0}
+  player: {fileID: 0}
+  stopMovement: 0
+  canDoorMove: 0
 --- !u!1 &2084986041
 GameObject:
   m_ObjectHideFlags: 0

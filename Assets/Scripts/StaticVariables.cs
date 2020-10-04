@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StaticVariables : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public static int currentDialog;
     void Start()
     {
         

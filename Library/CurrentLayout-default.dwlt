@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 123
+  controlID: 125
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -266,8 +266,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.21365577, y: 0.07447881, z: 65.68759}
+    m_Target: {x: 0.124556854, y: -0.08147558, z: 82.74657}
     speed: 2
-    m_Value: {x: -0.21365577, y: 0.07447881, z: 65.68759}
+    m_Value: {x: 0.124556854, y: -0.08147558, z: 82.74657}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -453,9 +453,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.205571
+    m_Target: 1.5651377
     speed: 2
-    m_Value: 1.205571
+    m_Value: 1.5651377
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -535,9 +535,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9e3f0000
+      m_SelectedIDs: 96470000
       m_LastClickedID: 0
-      m_ExpandedIDs: cefaffff5efbffff
+      m_ExpandedIDs: 82ccffffc8cdffff2cceffff3eceffffb8ceffff30e7ffffeeedffff4ceeffffe6effffff2f7ffff003a0000005a0000ce5a0000ae6a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -600,20 +600,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Projects\Ludum Jam 47
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8a3f0000
-    m_LastClickedID: 16266
-    m_ExpandedIDs: 000000007a3f00007c3f000000ca9a3b
+    m_SelectedIDs: c03a0000
+    m_LastClickedID: 15040
+    m_ExpandedIDs: 00000000ae3a0000b03a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007a3f00007c3f0000
+    m_ExpandedIDs: 00000000ae3a0000b03a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

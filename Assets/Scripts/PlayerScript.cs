@@ -72,10 +72,16 @@ public class PlayerScript : MonoBehaviour
             Destroy(this.gameObject);         
         }
 
-        if (other.gameObject.CompareTag("StopMovement"))
+      
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("StopMovement"))
         {
             gc.canDoorMove = true;
             gc.stopMovement = true;
+            StaticVariables.currentDialog++;
             StartCoroutine(LevelChange());
         }
     }
