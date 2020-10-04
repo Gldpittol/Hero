@@ -10668,6 +10668,7 @@ MonoBehaviour:
   - {fileID: 1056560863}
   - {fileID: 567507483}
   currentPattern: 0
+  gc: {fileID: 0}
 --- !u!1 &1200620261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12347,6 +12348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409193602}
   - component: {fileID: 1409193603}
+  - component: {fileID: 1409193604}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -12380,6 +12382,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f3f067191690349a86486e5086e85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPattern: 0
+  killerPrefab: {fileID: 3774936501882297297, guid: 3324721c3c007d843a8f8784550a13c4,
+    type: 3}
+  player: {fileID: 1816138962}
+--- !u!114 &1409193604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409193601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27c9b088a6155c4e9841549ac612409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
+  tempTransform: {x: 0, y: 0, z: 0}
+  canSpawn: 0
 --- !u!1 &1468878379
 GameObject:
   m_ObjectHideFlags: 0

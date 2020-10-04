@@ -5,7 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameControllerScript : MonoBehaviour
 {
+    public int currentPattern;
 
+    public GameObject killerPrefab;
+    public GameObject player;
+
+
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
     public void KillPlayer()
     {
         StartCoroutine(DeathDelay());

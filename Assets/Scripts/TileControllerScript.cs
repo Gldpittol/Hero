@@ -8,9 +8,10 @@ public class TileControllerScript : MonoBehaviour
 
     public int currentPattern;
 
-
+    public GameControllerScript gc;
     private void Start()
     {
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
         currentPattern = 1;
     }
 
@@ -21,51 +22,61 @@ public class TileControllerScript : MonoBehaviour
         {
             case 1:
                 currentPattern = 5000;
+                gc.currentPattern = 1;
                 StartCoroutine(Pattern1());
                 break;
 
             case 2:
                 currentPattern = 5000;
+                gc.currentPattern = 2;
                 StartCoroutine(Pattern2());
                 break;
 
             case 3:
                 currentPattern = 5000;
+                gc.currentPattern = 3;
                 StartCoroutine(Pattern3());
                 break;
 
             case 4:
                 currentPattern = 5000;
+                gc.currentPattern = 4;
                 StartCoroutine(Pattern4());
                 break;
 
             case 5:
                 currentPattern = 5000;
+                gc.currentPattern = 5;
                 StartCoroutine(Pattern5());
                 break;
 
             case 6:
                 currentPattern = 5000;
+                gc.currentPattern = 6;
                 StartCoroutine(Pattern6());
                 break;
 
             case 7:
                 currentPattern = 5000;
+                gc.currentPattern = 7;
                 StartCoroutine(Pattern7());
                 break;
 
             case 8:
                 currentPattern = 5000;
+                gc.currentPattern = 8;
                 StartCoroutine(Pattern8());
                 break;
 
             case 9:
                 currentPattern = 5000;
+                gc.currentPattern = 9;
                 StartCoroutine(Pattern9());
                 break;
 
             case 10:
                 currentPattern = 5000;
+                gc.currentPattern = 10;
                 StartCoroutine(Pattern10());
                 break;
         }
