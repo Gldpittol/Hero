@@ -10,6 +10,9 @@ public class GameControllerScript : MonoBehaviour
     public GameObject killerPrefab;
     public GameObject player;
 
+    public bool stopMovement;
+    public bool canDoorMove;
+
 
     void Awake()
     {

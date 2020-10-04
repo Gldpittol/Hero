@@ -26,37 +26,42 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && canMove && transform.position.y < 0.63f)
-        {
-            canMove = false;
-            sr.sprite = upSprite;
-            gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.16f);
-            StartCoroutine(MoveDelay());
-        }
 
-        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && canMove && transform.position.y > -0.79f)
+        if(!gc.stopMovement)
         {
-            canMove = false;
-            sr.sprite = downSprite;
-            gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - 0.16f);
-            StartCoroutine(MoveDelay());
-        }
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && canMove && transform.position.y < 0.63f)
+            {
+                canMove = false;
+                sr.sprite = upSprite;
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.16f);
+                StartCoroutine(MoveDelay());
+            }
 
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && canMove && transform.position.x > -0.70f)
-        {
-            canMove = false;
-            sr.sprite = leftSprite;
-            gameObject.transform.position = new Vector2(transform.position.x - 0.16f, transform.position.y);
-            StartCoroutine(MoveDelay());
-        }
+            if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && canMove && transform.position.y > -0.79f)
+            {
+                canMove = false;
+                sr.sprite = downSprite;
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - 0.16f);
+                StartCoroutine(MoveDelay());
+            }
 
-        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && canMove && transform.position.x < 0.71f)
-        {
-            canMove = false;
-            sr.sprite = rightSprite;
-            gameObject.transform.position = new Vector2(transform.position.x + 0.16f, transform.position.y);
-            StartCoroutine(MoveDelay());
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && canMove && transform.position.x > -0.70f)
+            {
+                canMove = false;
+                sr.sprite = leftSprite;
+                gameObject.transform.position = new Vector2(transform.position.x - 0.16f, transform.position.y);
+                StartCoroutine(MoveDelay());
+            }
+
+            if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && canMove && transform.position.x < 0.71f)
+            {
+                canMove = false;
+                sr.sprite = rightSprite;
+                gameObject.transform.position = new Vector2(transform.position.x + 0.16f, transform.position.y);
+                StartCoroutine(MoveDelay());
+            }
         }
+        
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -66,11 +71,24 @@ public class PlayerScript : MonoBehaviour
             gc.KillPlayer();
             Destroy(this.gameObject);         
         }
+
+        if (other.gameObject.CompareTag("StopMovement"))
+        {
+            gc.canDoorMove = true;
+            gc.stopMovement = true;
+            StartCoroutine(LevelChange());
+        }
     }
 
     public IEnumerator MoveDelay()
     {
         yield return new WaitForSeconds(waitTime);
         canMove = true;
+    }
+
+    public IEnumerator LevelChange()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Level", LoadSceneMode.Single);
     }
 }
