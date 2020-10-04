@@ -7,6 +7,7 @@ public class DoorScript : MonoBehaviour
 {
 
     public int side;
+    public int vertical;
     public GameControllerScript gc;
     private void Start()
     {
@@ -16,7 +17,7 @@ public class DoorScript : MonoBehaviour
     {
         if(gc.canDoorMove)
         {
-            transform.position = new Vector3(transform.position.x + side * Time.deltaTime * 0.3f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + side * Time.deltaTime * 0.3f, transform.position.y + vertical * Time.deltaTime * 0.3f, transform.position.z);
             Destroy(this.gameObject, 2f);
         }
     }
