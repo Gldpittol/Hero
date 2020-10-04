@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     private bool canMove;
     public float waitTime;
 
+    public GameObject healthBar;
+
     void Start()
     {
         canMove = true;
@@ -88,6 +90,9 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gc.pickedAmount++;
+
+            healthBar.GetComponent<HealthBarScript>().UpdateHealthBar();
+
             if(gc.pickedAmount == 4)
             {
                 gc.KillBoss();
