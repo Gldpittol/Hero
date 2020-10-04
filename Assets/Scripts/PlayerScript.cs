@@ -70,8 +70,8 @@ public class PlayerScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Death") && !gc.cannotDie)
         {
-            //gc.KillPlayer();
-            //Destroy(this.gameObject);         
+            gc.KillPlayer();
+            Destroy(this.gameObject);         
         }
 
       
@@ -90,6 +90,8 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gc.pickedAmount++;
+            gc.PlayAudio("Sword");
+            gc.PlayAudio("BigExplosion");
 
             healthBar.GetComponent<HealthBarScript>().UpdateHealthBar();
 

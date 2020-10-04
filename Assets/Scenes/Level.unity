@@ -13255,6 +13255,10 @@ MonoBehaviour:
   pickedAmount: 0
   cannotDie: 0
   cutsceneMove: 0
+  audSource: {fileID: 519420030}
+  audClipBigExplosion: {fileID: 8300000, guid: ce655263d4fbfb640ab1b1826f8ec7fa, type: 3}
+  audClipDoor: {fileID: 0}
+  audClipSword: {fileID: 8300000, guid: 25714fd85fe5d0f48b034d4e5dc3a019, type: 3}
 --- !u!114 &1409193604
 MonoBehaviour:
   m_ObjectHideFlags: 0

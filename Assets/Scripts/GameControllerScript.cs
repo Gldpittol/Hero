@@ -32,6 +32,13 @@ public class GameControllerScript : MonoBehaviour
 
     public bool cutsceneMove;
 
+
+    public AudioSource audSource;
+    public AudioClip audClipBigExplosion;
+    public AudioClip audClipDoor;
+    public AudioClip audClipSword;
+
+
     void Awake()
     {
         QualitySettings.vSyncCount = 1;
@@ -129,10 +136,28 @@ public class GameControllerScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         temp = Instantiate(killerPrefab, player.transform.position, Quaternion.identity);
         temp.transform.localScale = new Vector3(2f, 2f, temp.transform.localScale.z);
+        PlayAudio("BigExplosion");
         Destroy(temp, 1f);
         Destroy(player.gameObject);
         yield return new WaitForSeconds(0.5f);
         temp = Instantiate(bossPrefab, new Vector2(0f,-0.08f), Quaternion.identity);
         temp.transform.localScale *= -1;
+    }
+
+
+    public void PlayAudio(string audioName)
+    {
+        switch(audioName)
+        {
+            case "BigExplosion":
+                audSource.PlayOneShot(audClipBigExplosion);
+                break;
+            case "Door":
+                audSource.PlayOneShot(audClipDoor);
+                break;
+            case "Sword":
+                audSource.PlayOneShot(audClipSword);
+                break;
+        }
     }
 }
