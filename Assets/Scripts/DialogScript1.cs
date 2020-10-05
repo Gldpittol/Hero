@@ -41,21 +41,21 @@ public class DialogScript1 : MonoBehaviour
             case 2:
                 gc.stopMovement = true;
                 dialogText.text = "I fell into the darkness, I should be dead. How am I alive?";
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
                 gc.stopMovement = false;
                 Destroy(canv.gameObject);
                 break;
             case 3:
                 gc.stopMovement = true;
                 dialogText.text = "I wonder if this will ever stop. Am I stuck repeating this over and over forever?";
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(4f);
                 gc.stopMovement = false;
                 Destroy(canv.gameObject);
                 break;
             case 4:
                 gc.stopMovement = true;
                 dialogText.text = "Everything seems to be exactly the same every time I do it.";
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(3f);
                 gc.stopMovement = false;
                 Destroy(canv.gameObject);
                 break;
@@ -120,6 +120,9 @@ public class DialogScript1 : MonoBehaviour
                 dialogText.text = "You're just shitting me now, right, player-kun? 100 deaths??";
                 yield return new WaitForSeconds(2f);
                 gc.stopMovement = false;
+                Destroy(canv.gameObject);
+                break;
+            default:
                 Destroy(canv.gameObject);
                 break;
         }
