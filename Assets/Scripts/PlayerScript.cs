@@ -70,8 +70,8 @@ public class PlayerScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Death") && !gc.cannotDie)
         {
-            gc.KillPlayer();
-            Destroy(this.gameObject);         
+           gc.KillPlayer();
+           Destroy(this.gameObject);         
         }
 
       

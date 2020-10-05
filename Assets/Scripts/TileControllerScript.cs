@@ -6,13 +6,20 @@ public class TileControllerScript : MonoBehaviour
 {
     public GameObject[] tiles;
 
+    public int[] vetor;
+    
     public int currentPattern;
+
+    public int i;
 
     public GameControllerScript gc;
     private void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
-        currentPattern = 1;
+        vetor = StaticVariables.vetor;
+        i = 0;
+        currentPattern = vetor[i];
+
     }
 
     void Update()
@@ -98,7 +105,7 @@ public class TileControllerScript : MonoBehaviour
     {
         //diagonal do noroeste para o sudeste
         float fadeTime = 0.1f;
-        float returnTime = 5f;
+        float returnTime = 2f;
         float waitTime = 0.1f;
 
         yield return new WaitForSeconds(2f);
@@ -215,20 +222,21 @@ public class TileControllerScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         tiles[90].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[99].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        
+        yield return new WaitForSeconds(2f + 0.2f);
 
 
-        currentPattern = 2;
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern2()
     {
         //wipe da esquerda para a direita, depois de cima para baixo restando 1 tile
         float fadeTime = 0.1f;
-        float returnTime = 5f;
+        float returnTime = 2f;
         float waitTime = 0.1f;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         tiles[1].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[11].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[21].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
@@ -341,18 +349,19 @@ public class TileControllerScript : MonoBehaviour
         tiles[30].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - 8 * 0.1f);
         yield return new WaitForSeconds(0.1f);
         tiles[20].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - 9 * 0.1f);
-        yield return new WaitForSeconds(6f);
-        currentPattern = 3;
+        yield return new WaitForSeconds(2f + 0.2f);
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern3()
     {
         //concêntrico, sobrando um quadrado de tiles no meio
         float fadeTime = 0.1f;
-        float returnTime = 5f;
-        float waitTime = 0.1f;
+        float returnTime = 3f;
+        float waitTime = 2f;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         tiles[1].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[2].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[3].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
@@ -405,8 +414,8 @@ public class TileControllerScript : MonoBehaviour
         tiles[62].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[72].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[82].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        tiles[71].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        tiles[81].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
+        tiles[71].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - waitTime);
+        tiles[81].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - waitTime);
         tiles[82].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[83].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[84].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
@@ -435,10 +444,11 @@ public class TileControllerScript : MonoBehaviour
         tiles[65].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[66].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[67].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(8f + 0.2f);
 
 
-        currentPattern = 4;
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern4()
@@ -446,7 +456,7 @@ public class TileControllerScript : MonoBehaviour
         //retira os corredores centrais e depois os quadrados nordeste e sudoeste
         float fadeTime = 0.1f;
         float returnTime = 5f;
-       // float waitTime = 0.1f;
+        // float waitTime = 0.1f;
 
         yield return new WaitForSeconds(2f);
         tiles[5].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
@@ -515,14 +525,13 @@ public class TileControllerScript : MonoBehaviour
         tiles[92].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[93].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[94].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        yield return new WaitForSeconds(returnTime + 5f);
+        yield return new WaitForSeconds(returnTime + 0.2f);
 
 
 
-        currentPattern = 5;
-
+        i++;
+        currentPattern = vetor[i];
     }
-
     public IEnumerator Pattern5()
     {
         //retira os corredores centrais e depois os quadrados noroeste e sudeste
@@ -597,10 +606,10 @@ public class TileControllerScript : MonoBehaviour
         tiles[98].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - 2f);
         tiles[99].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - 2f);
         tiles[100].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime - 2f);
-        yield return new WaitForSeconds(returnTime);
+        yield return new WaitForSeconds(returnTime + 0.2f);
 
-        currentPattern = 6;
-
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern6()
@@ -849,14 +858,15 @@ public class TileControllerScript : MonoBehaviour
         tiles[92].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[93].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[94].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(10f + 0.2f);
 
 
         //for (int i = 1; i <= 40; i++)
         //{
         //tiles[i].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);         
         // }
-        currentPattern = 7;
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern7()
@@ -1106,9 +1116,10 @@ public class TileControllerScript : MonoBehaviour
         tiles[99].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
         tiles[100].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
 
-        yield return new WaitForSeconds(returnTime);
+        yield return new WaitForSeconds(returnTime + 0.2f);
 
-        currentPattern = 8;
+        i++;
+        currentPattern = vetor[i];
 
 
     }
@@ -1198,9 +1209,10 @@ public class TileControllerScript : MonoBehaviour
             i++;
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f + 0.2f);
 
-        currentPattern = 9;
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern9()
@@ -1393,9 +1405,10 @@ public class TileControllerScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         tiles[32].GetComponent<FadeScript>().FadeStart(fadeTime, returnTime);
 
-        yield return new WaitForSeconds(returnTime);
+        yield return new WaitForSeconds(returnTime + 0.2f);
 
-        currentPattern = 10;
+        i++;
+        currentPattern = vetor[i];
     }
 
     public IEnumerator Pattern10()
@@ -1465,9 +1478,10 @@ public class TileControllerScript : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f + 0.2f);
 
-        currentPattern = 1;
+        i = 0;
+        currentPattern = vetor[0]; ;
     }
 
 }
