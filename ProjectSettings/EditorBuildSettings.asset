@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/The Room.unity
     guid: 1649008197a416a4fa3899323ba01f6a
+  - enabled: 1
+    path: Assets/Scenes/Achievements.unity
+    guid: f836ef8be486a3a4f9325795a49656d6
   m_configObjects: {}

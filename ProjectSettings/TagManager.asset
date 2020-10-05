@@ -8,6 +8,7 @@ TagManager:
   - NonDeath
   - StopMovement
   - sword
+  - Boss
   layers:
   - Default
   - TransparentFX

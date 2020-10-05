@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject healthBar;
 
+    public int pickedSword;
     void Start()
     {
         canMove = true;
@@ -37,6 +39,10 @@ public class PlayerScript : MonoBehaviour
                 sr.sprite = upSprite;
                 gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.16f);
                 StartCoroutine(MoveDelay());
+                if(gc.killerPrefab)
+                {
+                    StaticVariables.stepCounter++;
+                }
             }
 
             if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && canMove && transform.position.y > -0.79f)
@@ -45,6 +51,10 @@ public class PlayerScript : MonoBehaviour
                 sr.sprite = downSprite;
                 gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - 0.16f);
                 StartCoroutine(MoveDelay());
+                if (gc.killerPrefab)
+                {
+                    StaticVariables.stepCounter++;
+                }
             }
 
             if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && canMove && transform.position.x > -0.70f)
@@ -53,6 +63,10 @@ public class PlayerScript : MonoBehaviour
                 sr.sprite = leftSprite;
                 gameObject.transform.position = new Vector2(transform.position.x - 0.16f, transform.position.y);
                 StartCoroutine(MoveDelay());
+                if (gc.killerPrefab)
+                {
+                    StaticVariables.stepCounter++;
+                }
             }
 
             if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && canMove && transform.position.x < 0.71f)
@@ -61,6 +75,10 @@ public class PlayerScript : MonoBehaviour
                 sr.sprite = rightSprite;
                 gameObject.transform.position = new Vector2(transform.position.x + 0.16f, transform.position.y);
                 StartCoroutine(MoveDelay());
+                if (gc.killerPrefab)
+                {
+                    StaticVariables.stepCounter++;
+                }
             }
         }
         
@@ -74,7 +92,14 @@ public class PlayerScript : MonoBehaviour
            Destroy(this.gameObject);         
         }
 
-      
+        if (other.gameObject.CompareTag("Boss") && !gc.cannotDie)
+        {
+            if(StaticVariables.achievementNoWarrior == 0)   StaticVariables.achievementNoWarrior = 1;
+            gc.KillPlayer();
+            Destroy(this.gameObject);
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,6 +115,18 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gc.pickedAmount++;
+
+            if(gc.pickedAmount == 4 && StaticVariables.achievementYesWarrior == 0)
+            {
+                StaticVariables.achievementYesWarrior = 1;
+            }
+
+            StartCoroutine(RapidFire());
+            if(pickedSword == 1)
+            {
+                StaticVariables.achievementRapidFire = 1;
+            }
+
             gc.PlayAudio("Sword");
             gc.PlayAudio("BigExplosion");
 
@@ -115,5 +152,14 @@ public class PlayerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Level", LoadSceneMode.Single);
+    }
+
+
+    public IEnumerator RapidFire()
+    {
+        yield return new WaitForEndOfFrame();
+        pickedSword = 1;
+        yield return new WaitForSeconds(5f);
+        pickedSword = 0;
     }
 }

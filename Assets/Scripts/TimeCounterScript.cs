@@ -18,5 +18,10 @@ public class TimeCounterScript : MonoBehaviour
     {
         time += Time.deltaTime;
         timeText.text = time.ToString("F2").Replace(",", ".") + "s"; 
+
+        if(time > 300 && StaticVariables.achievementStickIt == 0)
+        {
+            StaticVariables.achievementStickIt = 1;
+        }
     }
 }
