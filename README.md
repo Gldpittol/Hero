@@ -1,4 +1,4 @@
-# Ludum-Game-Jam-47
+# Hero
 
 Game made for Ludum Dare Jam 2020/2
 
